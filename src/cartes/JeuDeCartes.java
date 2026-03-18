@@ -69,5 +69,26 @@ public class JeuDeCartes {
 	public static int getNbCartesMax() {
 		return NB_CARTES_MAX;
 	}
-
+	
+	private int count(Carte carte, Carte[] cartes) {
+		int cpt = 0;
+		for (int i = 0; i < cartes.length; i++) {
+			if (cartes[i].equals(carte)) {
+				cpt++;
+			}
+		}
+		return cpt;
+	}
+	
+	public boolean checkCount() {
+		Carte[] cartes = donnerCartes();
+		for (int i = 0; i < 19; i++) {
+			Carte c = typesDeCartes[i].getCarte();
+			int cpt = count(c, cartes);
+			if (typesDeCartes[i].getNbExemplaires() != cpt) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
