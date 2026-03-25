@@ -71,10 +71,25 @@ public class GestionCartes {
 	}
 	
 	public static <E> boolean verifierRassemblement(List<E> list) {
-		for (ListIterator<E> it = list.listIterator();it.hasNext();) {
-			E current = it.next();
-			
-		}
+	    if (list.isEmpty()) return true;
+
+	    ListIterator<E> it = list.listIterator();
+	    E previous = it.next();
+
+	    while (it.hasNext()) {
+	        E current = it.next();
+
+	        if (!current.equals(previous)) {
+	            ListIterator<E> it2 = list.listIterator(it.nextIndex());
+	            while (it2.hasNext()) {
+	                if (previous.equals(it2.next())) {
+	                    return false;
+	                }
+	            }
+	        }
+	        previous = current;
+	    }
+	    return true;
 	}
 
 }
