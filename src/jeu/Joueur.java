@@ -1,9 +1,14 @@
 package jeu;
 
+import cartes.Bataille;
+import cartes.Borne;
+import cartes.Botte;
 import cartes.Carte;
+import cartes.Limite;
 
 public class Joueur {
 	private String nom;
+	private ZoneDeJeu zoneDeJeu = new ZoneDeJeu();
 	private MainJoueur main = new MainJoueur();
 
 	public Joueur(String nom) {
@@ -51,6 +56,18 @@ public class Joueur {
 			return nom.equals(other.getNom());
 		}
 		return false;
+	}
+	
+	public int donnerKmParcourus() {
+		return zoneDeJeu.donnerKmParcours();
+	}
+	
+	public void deposer(Carte c) {
+		zoneDeJeu.deposer(c);
+	}
+	
+	public boolean estDepotAutorise(Carte carte) {
+		return zoneDeJeu.estDepotAutorise(carte);
 	}
 
 }
