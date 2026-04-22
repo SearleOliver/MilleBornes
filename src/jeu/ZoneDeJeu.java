@@ -23,6 +23,19 @@ public class ZoneDeJeu {
 	private List<Borne> pileBorne = new ArrayList<>();
 	private Set<Botte> bottes = new HashSet<>();
 	
+	public Set<Botte> getBottes() {
+		return bottes;
+	}
+	
+	public List<Limite> getLimites() {
+		return pileLimites;
+	}
+	
+	public List<Bataille> getBataille() {
+		return pileBataille;
+	}
+	
+	
 	public int donnerLimitationVitesse() {
 		if (pileLimites.isEmpty() || (donnerSommet(pileLimites) instanceof FinLimite) || estPrioritaire()) {
 			return 200;

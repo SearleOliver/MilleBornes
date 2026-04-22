@@ -21,6 +21,10 @@ public abstract class Probleme extends Carte {
 		return false;
 	}
 	
+	public int compareTo(Probleme prob) {
+        return this.type.compareTo(prob.getType());
+    }
+	
 	@Override
 	public int hashCode() {
 		return 31 * super.hashCode() * type.hashCode();

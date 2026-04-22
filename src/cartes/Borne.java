@@ -14,6 +14,10 @@ public class Borne extends Carte {
 		return this.km;
 	}
 	
+	public int compareTo(Borne borne) {
+		return Integer.compare(this.km, borne.km);
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (super.equals(obj)) {
